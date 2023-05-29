@@ -1,0 +1,17 @@
+<mat-form-field>
+    <mat-label>Descripcion del vehiculo</mat-label>
+    <input matInput [(ngModel)]="vehDescripcion">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Select Marca</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let item of marcaSelect" [value]="item.marId" (click)="getModelosSelect(item.marId)">{{item.marDecripcion}} </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Select Modelo</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let item of modeloSelect" [value]="item.modId" (click)="idModeloSelect(item.modId)">{{item.marDecripcion}}-{{item.modDescripcion}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="addCar()">Add</button>

@@ -1,0 +1,46 @@
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.mat-elevation-z8 {
+    padding: 0;
+}
+
+.filter {
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-left: 27.5%;
+    width: 45%;
+}
+
+.custom-table {
+    background-color: white;
+    background-color: #e6e8eb;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-table th {
+    color: #0d6efd !important;
+    font-weight: bold;
+}
+
+.custom-table td {
+    background-color: rgb(255, 255, 255);
+    color: #000;
+}
+
+.custom-table .mat-header-cell {
+    background-color: lightgray;
+    /* Cambia el color de fondo del encabezado si lo deseas */
+}
+
+.custom-table .mat-cell {
+    border-bottom: 1px solid gray;
+    /* Añade una línea de separación entre las filas si lo deseas */
+}

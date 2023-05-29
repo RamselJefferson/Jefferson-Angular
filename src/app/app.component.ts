@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCarComponent } from './components';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Jefferson-Angular';
+    /**
+     *
+     */
+    constructor(public dialog:MatDialog) {
+    
+      
+    }
+
 }

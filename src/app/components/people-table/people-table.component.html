@@ -1,0 +1,64 @@
+<app-toolbar></app-toolbar>
+
+
+<mat-form-field class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8 container" style="width: 100%;">
+    <table mat-table [dataSource]="dataSource" class="custom-table" matSort style="table-layout: auto;">
+
+        <ng-container matColumnDef="vehId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+
+            <td mat-cell *matCellDef="let row"> {{row.vehId}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="vehDecripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehiculo </th>
+            <td mat-cell *matCellDef="let row"> {{row.vehDecripcion}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="marDecripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Marca </th>
+            <td mat-cell *matCellDef="let row"> {{row.marDecripcion}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="modDescripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </th>
+            <td mat-cell *matCellDef="let row"> {{row.modDescripcion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell *matCellDef="let row"> <i class="fa-solid fa-pen" style="color: #0d6efd; cursor:pointer;" (click)="editar()"></i></td>
+        </ng-container>
+
+        <ng-container matColumnDef="accionesEditar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell *matCellDef="let row"> <i class="fa-solid fa-trash" style="color: #da1616; cursor:pointer;" (click)="deleteCarTable(row.vehId)"></i> </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
+
+<button class="botonF1" (click)="openDialog()">
+    <span class="spans">+</span>
+</button>

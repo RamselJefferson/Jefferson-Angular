@@ -1,0 +1,84 @@
+body {
+    background-color: #000;
+}
+
+.card {
+    width: 400px;
+    border: none;
+}
+
+.btr {
+    border-top-right-radius: 5px !important;
+}
+
+.btl {
+    border-top-left-radius: 5px !important;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.nav-pills {
+    display: table !important;
+    width: 100%;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+    border-bottom: 1px solid #0d6efd40;
+}
+
+.nav-item {
+    display: table-cell;
+    background: #0d6efd2e;
+}
+
+.form {
+    padding: 10px;
+    height: 300px;
+}
+
+.form input {
+    margin-bottom: 12px;
+    border-radius: 3px;
+}
+
+.form input:focus {
+    box-shadow: none;
+}
+
+.form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.prueba {
+    background-color: #f5f5f5;
+    /* Color gris para el fondo del contenedor padre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.prueba2 {
+    background-color: #f5f5f5;
+    /* Color gris para el fondo del contenedor intermedio */
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    /* Color blanco para la caja blanca */
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
