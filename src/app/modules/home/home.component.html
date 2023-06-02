@@ -18,6 +18,7 @@
                 <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
                     <div class="form px-4 pt-5">
+                        <span *ngIf="error" style="color: red;">Credenciales incorrectas</span>
 
                         <input type="text" name="" [(ngModel)]="nam1e" class="form-control" placeholder="Name">
 
@@ -52,15 +53,15 @@
 
             <div class="form px-4">
 
-                <input type="text" name="" class="form-control" placeholder="Name">
+                <input type="text" [(ngModel)]="usuarioCrear.usuarioName" name="" class="form-control" placeholder="Name">
 
-                <input type="text" name="" class="form-control" placeholder="Email">
+                <input type="text" [(ngModel)]="usuarioCrear.email" name="" class="form-control" placeholder="Email">
 
-                <input type="text" name="" class="form-control" placeholder="Phone">
+                <input type="number" [(ngModel)]="usuarioCrear.rol" name="" class="form-control" placeholder="Phone">
 
-                <input type="text" name="" class="form-control" placeholder="Password">
+                <input type="text" [(ngModel)]="usuarioCrear.password" name="" class="form-control" placeholder="Password">
 
-                <button class="btn btn-dark btn-block">Signup</button>
+                <button class="btn btn-dark btn-block" (click)="crearUsuario()">Signup</button>
 
             </div>
         </div>

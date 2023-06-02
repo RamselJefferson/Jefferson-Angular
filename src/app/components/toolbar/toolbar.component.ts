@@ -29,5 +29,13 @@ logout(){
   this.router.navigate(['../home']);
 
 }
+perfil(){
+  this.router.navigate(['../perfil']);
+}
+
+contenido(){
+  this.router.navigate(['../contenido']);
+}
+
 ngOnInit(): void {}
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules';
-import { PeopleTableComponent } from './components';
+import { PeopleTableComponent, PerfilComponent } from './components';
 
 const routes: Routes = [
   { path: '', redirectTo:'home', pathMatch:'full' },
@@ -15,6 +15,7 @@ const routes: Routes = [
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
        {path: 'contenido', component: PeopleTableComponent},
+       {path: 'perfil', component: PerfilComponent},
      ]),],
  
   

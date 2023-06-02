@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { AddCarComponent } from './components/people-table/add-car/add-car.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditCarComponent } from './components/people-table/edit-car/edit-car.component';
+import { PerfilComponent } from './components';
+
 
 
 
@@ -28,6 +30,7 @@ import { EditCarComponent } from './components/people-table/edit-car/edit-car.co
         AddCarComponent,
         EditCarComponent,
         AppRoutingModule,
+        PerfilComponent,
         BrowserAnimationsModule,
         ToolbarComponent,
         PeopleTableComponent

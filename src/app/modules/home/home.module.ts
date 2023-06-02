@@ -21,4 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule
   ]
 })
-export class HomeModule { }
+export class HomeModule { 
+  constructor() {
+
+  }
+}

@@ -1,8 +1,18 @@
 <p>
     <mat-toolbar class="toolbar">
-        <span>Jefferson App <i class="fa-brands fa-angular fa-xl"></i></span>
+        <span style="cursor:pointer;" (click)="contenido()">Jefferson App <i class="fa-brands fa-angular fa-xl"></i></span>
         <span class="example-spacer"></span>
-        <i class="fa-solid fa-right-from-bracket fa-xl logout" style="color: #fff; cursor:pointer;" (click)="logout()"></i>
+
+        <div class="col-1">
+            <a style="cursor: pointer;"><i class="fa-solid fa-shop-lock  " style="color: #fff;"></i>Tienda</a>
+        </div>
+        <div class="col-1">
+            <a (click)="perfil()" style="cursor: pointer;"><i class="fa-solid fa-user" style="color: #fff;"></i>Perfil</a>
+        </div>
+        <div>
+            <i class="fa-solid fa-right-from-bracket fa-xl logout mr-4" style="color: #fff; cursor:pointer;" (click)="logout()"></i>
+        </div>
+
     </mat-toolbar>
 
 

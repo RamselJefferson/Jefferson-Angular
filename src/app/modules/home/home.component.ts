@@ -2,6 +2,7 @@ import { Token } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/intarefaces/usuario';
+import { UsuarioDTO } from 'src/app/intarefaces/usuario-dto';
 import { ServiceService } from 'src/app/service/service.service';
 
 @Component({
@@ -17,20 +18,14 @@ export class HomeComponent {
   logeado?: boolean;
   register?: boolean;
   token: string =  "";
+  error: boolean = false;
+  usuarioCrear!: UsuarioDTO;
   
   constructor(private service: ServiceService,private router: Router) {
     this.nam1e = "",
     this.password = ""
     this.loginn = true;
     this.register = false;
-  
-    this.token = localStorage.getItem('key') || '';
-    // this.service.verificarToken(this.token).subscribe((data: any)=>{
-    //   console.log(data);
-    //   if(data.success == true){
-    //     this.router.navigate(['../contenido']);
-    //   }
-    // })
   }
 
   registerr(){
@@ -38,18 +33,29 @@ export class HomeComponent {
     this.register = true;
   }
 
+  crearUsuario(){
+    this.service.crearUsuarioService(this.usuarioCrear).subscribe(data =>{
+      console.log(data);
+    })
+  }
   loginForm(){
     this.loginn = true;
     this.register = false;
+    this.nam1e = "";
+    this.password = "";
+    this.error = false;
   }
   ngOnInit(){
-    console.log(this.loginn);
-    console.log(this.register);
+ 
+    this.token = localStorage.getItem('key') || ('');
+      this.service.verificarToken(this.token).subscribe((data: any)=>{
+        if (data.success == true){
+          this.logeado = false;
+          this.router.navigate(['../contenido']);
+        }
+    })   
   }
-  login() {
-    this.logeado = true;
-    this.loginn = false;
-    this.register = false;
+  login() {   
     this.body = {
       usuario: this.nam1e,
       password: this.password
@@ -60,7 +66,15 @@ export class HomeComponent {
         console.log(data.success);
         console.log(data.message);
         console.log(data.result);
-         this.token = data.result
+         
+        if(data.success == false){
+          this.error = true;
+        }else{   
+          this.logeado = true;
+          this.loginn = false;
+          this.register = false;
+        }
+        
         localStorage.setItem('key', data.result);
         if(data.success == true){
           

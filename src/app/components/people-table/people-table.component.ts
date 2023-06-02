@@ -16,6 +16,7 @@ import { AddCarComponent } from './add-car';
 import { EditCarComponent } from './edit-car';
 import Swal from 'sweetalert2';
 import { ToolbarComponent } from '../toolbar';
+import { Router } from '@angular/router';
 
 
 
@@ -31,7 +32,8 @@ import { ToolbarComponent } from '../toolbar';
   styleUrls: ['./people-table.component.scss']
 })
 export class PeopleTableComponent  {
-
+  token: string =  "";
+  deslogeado?: boolean;
   vehiculos!: Vehiculos[];
   displayedColumns: string[] = ['vehId', 'vehDecripcion', 'marDecripcion', 'modDescripcion','acciones','accionesEditar'];
   
@@ -40,15 +42,25 @@ export class PeopleTableComponent  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: ServiceService, public dialog:MatDialog) { }
+  constructor(private service: ServiceService, private router: Router,
+    public dialog:MatDialog) { }
  
   ngOnInit(): void {
+
+     this.token = localStorage.getItem('key') || ('');
+    this.service.verificarToken(this.token).subscribe((data: any)=>{
+      if (data.success == false){
+        this.deslogeado = true;
+        this.router.navigate(['../home']);
+      }
+  })
     this.service.getCar().subscribe(data => {
       console.log(data);
       this.vehiculos = data;
       this.dataSource = new MatTableDataSource(this.vehiculos);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+     
     });
   }
 
@@ -61,6 +73,8 @@ export class PeopleTableComponent  {
     }
   }
 
+
+ 
 
   openDialog(){
     this.dialog.open(AddCarComponent,{
@@ -86,7 +100,8 @@ export class PeopleTableComponent  {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.service.deleteCar(id).subscribe(data => {
+
+        this.service.deleteCar(id,this.token).subscribe(data => {
           console.log(data);
           this.ngOnInit();
         })
